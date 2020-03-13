@@ -1,0 +1,7 @@
+select customer.cusName,customer.address,customer.phone,product.productName,product.unitPrice,orderdtails.quantity,product.unitPrice*orderdtails.quantity AS TotalCost
+from customer,product,orders,orderDtails 
+where customer.cusId=orders.cusId and product.productId=orderDtails.productId
+union 
+select customer.cusName,customer.address,customer.phone,product.productName,product.unitPrice,orderdtails.quantity,product.unitPrice*orderdtails.quantity AS TotalCost 
+from customer,product,orders,orderDtails 
+where customer.cusId=orders.cusId and product.productId=orderDtails.productId 
